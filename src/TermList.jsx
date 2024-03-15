@@ -1,28 +1,16 @@
 import "./TermList.css"
 import {TermCard} from "./TermCard.jsx";
-
-const terms = [
-    {
-      title: "React",
-      description: "Библиотека для создания пользовательских компонентов",
-    },
-    {
-        title: "React-компонент",
-        description: "Функция, возвращающая React-элемент",
-    },
-    {
-        title: "Render",
-    },
-]
-export const TermList = () => {
+export const TermList = ({ terms, onDelete }) => {
     return (
         <ul className="term-list">
-            {terms.map(({title, description}, index) => {
+            {terms.map(({id, title, description}) => {
                 return (
-                    <li key={index}>
+                    <li className="term-list__item" key={id}>
                         <TermCard
+                            id={id}
                             title={title}
                             description={description}
+                            onDelete={onDelete}
                         />
                     </li>
                 )
